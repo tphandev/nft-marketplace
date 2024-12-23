@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'drone': ['var(--font-drone-ranger)'],
+        'inter': ['var(--font-inter)'],
+      },
     },
   },
   plugins: [],
