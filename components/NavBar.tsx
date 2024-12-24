@@ -1,30 +1,44 @@
-import Menu from "./Menu";
-import MobileMenu from "./MobileMenu";
-import { PrimaryButton } from "./PrimaryButton";
+"use client";
+import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const navigationItems = [
-  { title: "HOME", href: "/" },
-  { title: "ABOUT US", href: "#" },
-  { title: "OUR TEAMS", href: "#" },
-  { title: "MARKETPLACE", href: "#" },
-  { title: "ROADMAP", href: "#" },
-  { title: "WHITEPAPER", href: "#" },
-];
+interface NavBarProps {
+  items: {
+    title: string;
+    href: string;
+  }[];
+}
 
-export default function NavBar() {
+export default function NavBar({ items }: NavBarProps) {
+  const pathname = usePathname();
+
   return (
-    <div
-      className={
-        "lg:mf-grid top-0 p-8 md:px-8 xl:px-0 fixed z-20 w-full bg-[#17161A]/70"
-      }
+    <nav
+      className={clsx(
+        "hidden items-center justify-between gap-12 text-white lg:flex title-14"
+      )}
     >
-      <div className="flex justify-between items-center lg:col-span-12 lg:gap-16">
-        <Menu items={navigationItems} />
-        <div className="flex flex-1 items-center justify-end gap-4 lg:flex-1">
-          <PrimaryButton>Connect Wallet</PrimaryButton>
-          <MobileMenu items={navigationItems} />
-        </div>
-      </div>
-    </div>
+      {items.map((item) => (
+        <Link
+          key={`${item.href}_${item.title}`}
+          href={item.href}
+          className={clsx(
+            "relative group hover:text-gradient transition-colors",
+            { "text-gradient": pathname === item.href }
+          )}
+        >
+          {item.title}
+          <div
+            className={clsx(
+              "absolute -bottom-2 left-1 w-0 h-1 bg-gradient group-hover:w-4 transition-all",
+              {
+                "!w-4": pathname === item.href,
+              }
+            )}
+          />
+        </Link>
+      ))}
+    </nav>
   );
 }

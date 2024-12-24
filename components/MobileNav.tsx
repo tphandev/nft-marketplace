@@ -13,7 +13,7 @@ interface MobileMenuProps {
   }[];
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
+export default function MobileNav({ items }: MobileMenuProps) {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
   const showDrawer = () => {
@@ -58,6 +58,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
       </Drawer>
     </div>
   );
-};
-
-export default MobileMenu;
+}
