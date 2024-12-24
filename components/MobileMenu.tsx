@@ -28,14 +28,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
     <div className="lg:hidden">
       <Button size="large" ghost icon={<MenuOutlined />} onClick={showDrawer} />
       <Drawer onClose={onClose} open={visible} className="bg-black">
-        <div
+        <nav
           className={clsx(
             "items-center justify-between gap-12  flex flex-col title-20"
           )}
         >
           {items.map((item) => (
             <Link
-              key={item.href}
+              key={`${item.href}_${item.title}`}
               href={item.href}
               className={clsx(
                 "relative group hover:text-gradient transition-colors text-gradient",
@@ -54,7 +54,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
               />
             </Link>
           ))}
-        </div>
+        </nav>
       </Drawer>
     </div>
   );

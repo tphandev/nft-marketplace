@@ -4,16 +4,16 @@ import { PrimaryButton } from "./PrimaryButton";
 
 const navigationItems = [
   { title: "HOME", href: "/" },
-  { title: "ABOUT US", href: "/about" },
-  { title: "OUR TEAMS", href: "/teams" },
-  { title: "MARKETPLACE", href: "/marketplace" },
-  { title: "ROADMAP", href: "/roadmap" },
-  { title: "WHITEPAPER", href: "/whitepaper" },
+  { title: "ABOUT US", href: "#" },
+  { title: "OUR TEAMS", href: "#" },
+  { title: "MARKETPLACE", href: "#" },
+  { title: "ROADMAP", href: "#" },
+  { title: "WHITEPAPER", href: "#" },
 ];
 
 export default function NavBar() {
   return (
-    <nav
+    <div
       className={
         "lg:mf-grid top-0 p-8 md:px-8 xl:px-0 fixed z-20 w-full bg-[#17161A]/70"
       }
@@ -25,6 +25,6 @@ export default function NavBar() {
           <MobileMenu items={navigationItems} />
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

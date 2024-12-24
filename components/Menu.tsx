@@ -11,14 +11,14 @@ export default function Menu({
   const pathname = usePathname();
 
   return (
-    <div
+    <nav
       className={clsx(
         "hidden items-center justify-between gap-12 text-white lg:flex title-14"
       )}
     >
       {items.map((item) => (
         <Link
-          key={item.href}
+          key={`${item.href}_${item.title}`}
           href={item.href}
           className={clsx(
             "relative group hover:text-gradient transition-colors",
@@ -36,6 +36,6 @@ export default function Menu({
           />
         </Link>
       ))}
-    </div>
+    </nav>
   );
 }

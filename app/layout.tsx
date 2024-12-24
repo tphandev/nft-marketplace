@@ -5,6 +5,7 @@ import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
           <ThemeProvider>
             <NavBar />
             {children}
+            <Footer />
           </ThemeProvider>
         </AntdRegistry>
       </body>
