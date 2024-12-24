@@ -19,7 +19,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           quality={100}
         />
       </div>
-      <div className="relative z-0 flex-1 pt-20">{children}</div>
+      <div className="relative z-0 flex-1">{children}</div>
       <div className="relative z-0 w-full">
         <Image
           src={lines}
