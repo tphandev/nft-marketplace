@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .mf-grid {
+    @apply mx-auto grid grid-cols-[repeat(12,minmax(0,80px))] justify-center gap-8;
+  }
+
+  /* Title variants */
+  .title-14 {
+    @apply font-drone font-bold text-sm;
+  }
+  .title-20 {
+    @apply font-drone font-bold text-xl leading-8;
+  }
+  .title-18-bold {
+    @apply font-drone font-bold text-lg;
+  }
+
+  /* Header variants */
+  .header-16-semibold {
+    @apply text-base font-semibold;
+  }
+  .header-16-medium {
+    @apply text-base font-medium;
+  }
+
+  /* Body variants */
+  .body-14-medium {
+    @apply text-sm font-medium leading-5;
+  }
+
+  /* Caption variants */
+  .caption-12-medium {
+    @apply text-xs font-medium leading-5;
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-[#DA458F] to-[#DA34DD];
+  }
+
+  .text-gradient {
+    @apply bg-gradient bg-clip-text text-transparent;
+  }
+}

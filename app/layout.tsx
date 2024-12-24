@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import NavBar from "@/components/NavBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,7 +46,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${droneRanger.variable} antialiased`}>
         <AntdRegistry>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <NavBar />
+            {children}
+          </ThemeProvider>
         </AntdRegistry>
       </body>
     </html>
