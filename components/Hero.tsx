@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/70" />
       </div>
 
-      <div className="relative z-10 w-full px-4 flex-1 flex items-center">
+      <div className="relative z-10 w-full px-4 flex-1 flex flex-col sm:flex-row sm:items-center">
         <div className="max-w-7xl mx-auto w-full">
           <div className="max-w-3xl">
             <Image
@@ -31,6 +31,10 @@ export default function Hero() {
               className="w-full"
             />
           </div>
+        </div>
+        {/* Mobile NewArrivals */}
+        <div className="sm:hidden mt-8">
+          <NewArrivals />
         </div>
       </div>
 
@@ -44,10 +48,11 @@ export default function Hero() {
             className="w-full"
             priority
           />
-          <div className="absolute bottom-0 right-[1%] translate-y-[35%]">
+          <div className="absolute bottom-0 right-0 sm:right-[1%] translate-y-[35%]">
             <HighlightNPC image={theDJ} name="THE DJ" />
           </div>
-          <div className="absolute bottom-0 left-[1%] translate-y-[15%]">
+          {/* Desktop NewArrivals */}
+          <div className="hidden lg:block absolute bottom-0 left-0 sm:left-[1%] translate-y-[15%]">
             <NewArrivals />
           </div>
         </div>

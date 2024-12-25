@@ -33,7 +33,7 @@ export default function NewArrivalCard({ image, name }: NewArrivalCardProps) {
           </div>
         </div>
 
-        <h1 className="title-18-bold text-black mt-8 relative z-20 text-center">
+        <h1 className="title-18-bold text-yellow-300 md:text-black mt-8 relative z-20 text-center">
           {name}
         </h1>
       </div>
