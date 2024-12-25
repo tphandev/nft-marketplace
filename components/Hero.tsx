@@ -2,10 +2,13 @@ import Image from "next/image";
 import heroImage from "@/public/images/hero-bg.jpg";
 import newArrival from "@/public/vectors/new-arrival.svg";
 import yellowBg from "@/public/vectors/yellow-bg.svg";
+import HighlightNPC from "./HighlighNPC";
+import theDJ from "@/public/images/NPCs/the-dj.png";
+import NewArrivals from "./NewArrivals";
 
 export default function Hero() {
   return (
-    <div className="relative h-[90vh] max-h-[800px] flex flex-col">
+    <div className="relative h-[90vh] max-h-[800px] flex flex-col overflow-y-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src={heroImage}
@@ -18,8 +21,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/70" />
       </div>
 
-      <div className="relative z-10 w-full px-4">
-        <div className="max-w-7xl mx-auto mt-36">
+      <div className="relative z-10 w-full px-4 flex-1 flex items-center">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="max-w-3xl">
             <Image
               src={newArrival}
@@ -32,14 +35,22 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full mt-auto">
-        <Image
-          src={yellowBg}
-          alt="Yellow Background"
-          width={1920}
-          height={300}
-          className="w-full"
-          priority
-        />
+        <div className="relative">
+          <Image
+            src={yellowBg}
+            alt="Yellow Background"
+            width={1920}
+            height={300}
+            className="w-full"
+            priority
+          />
+          <div className="absolute bottom-0 right-[1%] translate-y-[35%]">
+            <HighlightNPC image={theDJ} name="THE DJ" />
+          </div>
+          <div className="absolute bottom-0 left-[1%] translate-y-[15%]">
+            <NewArrivals />
+          </div>
+        </div>
       </div>
     </div>
   );
