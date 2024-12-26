@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import NewArrivalCard from "@/components/NewArrivalCard";
-import { ImageProps } from "next/image";
 
 describe("NewArrivalCard", () => {
   const mockProps = {
