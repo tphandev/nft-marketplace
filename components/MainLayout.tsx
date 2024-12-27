@@ -14,9 +14,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
           src={bgImage}
           alt="Background"
           fill
-          priority
           className="object-cover"
-          quality={100}
+          quality={25}
+          sizes="(max-width: 480px) 480px,
+                 (max-width: 768px) 768px,
+                 100vw"
+          placeholder="blur"
         />
       </div>
       <div className="relative z-0 flex-1">{children}</div>
@@ -27,7 +30,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
           width={1920}
           height={418}
           className="w-full"
-          priority
+          sizes="(max-width: 480px) 480px,
+                 (max-width: 768px) 768px,
+                 (max-width: 1200px) 1200px,
+                 1920px"
+          quality={50}
+          loading="lazy"
         />
       </div>
     </main>

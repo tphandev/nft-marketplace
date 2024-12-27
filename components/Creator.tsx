@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-interface CreatorProps {
+export interface CreatorProps {
   name: string;
   isOnline: boolean;
   avatarUrl: string;

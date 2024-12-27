@@ -45,6 +45,10 @@
   }
 }
 
+body {
+  background: #171717;
+}
+
 /* custom scrollbar class remains but modified */
 .custom-scrollbar {
   scrollbar-width: thin;

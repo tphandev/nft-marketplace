@@ -13,3 +13,5 @@ export const COLORS = {
   secondary:
     "linear-gradient(to right, rgba(218, 69, 143, 0.4), rgba(218, 52, 221, 0.4))",
 } as const;
+
+export const ITEMS_PER_PAGE = 8;

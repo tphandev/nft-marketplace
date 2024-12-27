@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { HeartFilled } from "@ant-design/icons";
-import Creator from "./Creator";
+import Creator, { CreatorProps } from "./Creator";
 
 interface NFTCardProps {
   image: string | StaticImageData;
@@ -8,6 +8,7 @@ interface NFTCardProps {
   price: string;
   category: string;
   bgColor?: string;
+  creator: CreatorProps;
 }
 
 export default function NFTCard({
@@ -16,6 +17,7 @@ export default function NFTCard({
   price,
   category,
   bgColor = "from-purple-600 to-indigo-600",
+  creator,
 }: NFTCardProps) {
   return (
     <div className="relative group min-w-[267px]">
@@ -35,8 +37,10 @@ export default function NFTCard({
               src={image}
               alt={name}
               fill
+              sizes="(max-width: 768px) 70vw, 267px"
+              quality={50}
               className="object-cover object-top translate-y-12"
-              priority
+              loading="lazy"
             />
           </div>
 
@@ -46,11 +50,7 @@ export default function NFTCard({
               <span className="body-14-medium text-white">{price}</span>
             </div>
           </div>
-          <Creator
-            name="Ghozali_Ghozalu"
-            isOnline
-            avatarUrl="https://robohash.org/nihiltotamdolorem.png?size=100x100&set=set1"
-          />
+          <Creator {...creator} />
         </div>
       </div>
     </div>

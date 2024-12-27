@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import NFTList from "../NFTList";
 import { useInView } from "react-intersection-observer";
+import { ITEMS_PER_PAGE } from "@/constants/designSystem";
 
 // Mock the react-intersection-observer
 jest.mock("react-intersection-observer", () => ({
@@ -28,7 +29,7 @@ describe("NFTList", () => {
   it("renders without crashing", () => {
     render(<NFTList items={mockItems} />);
     const nftCards = screen.getAllByText(/NFT \d/);
-    expect(nftCards).toHaveLength(8); // Initial ITEMS_PER_PAGE
+    expect(nftCards).toHaveLength(ITEMS_PER_PAGE);
   });
 
   it("renders with title when provided", () => {

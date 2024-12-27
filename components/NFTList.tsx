@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import NFTCard from "./NFTCard";
 import { StaticImageData } from "next/image";
 import { useInView } from "react-intersection-observer";
+import { CreatorProps } from "./Creator";
+import { ITEMS_PER_PAGE } from "@/constants/designSystem";
 
 interface NFT {
   id: number;
@@ -11,14 +13,13 @@ interface NFT {
   name: string;
   price: string;
   category: string;
+  creator: CreatorProps;
 }
 
 interface NFTListProps {
   items: NFT[];
   title?: string;
 }
-
-const ITEMS_PER_PAGE = 8;
 
 export default function NFTList({ items, title }: NFTListProps) {
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
@@ -55,6 +56,7 @@ export default function NFTList({ items, title }: NFTListProps) {
                 name={nft.name}
                 price={nft.price}
                 category={nft.category}
+                creator={nft.creator}
               />
             ))}
           </div>
