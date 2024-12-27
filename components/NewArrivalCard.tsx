@@ -18,6 +18,7 @@ export default function NewArrivalCard({ image, name }: NewArrivalCardProps) {
               className="object-cover rounded-lg  border-yellow-800 border-2"
               width={200}
               height={120}
+              sizes="(min-width: 1920px) 300px, 200px"
             />
           </div>
 
@@ -27,13 +28,13 @@ export default function NewArrivalCard({ image, name }: NewArrivalCardProps) {
               alt={`${name} illustration`}
               width={100}
               height={100}
-              className="z-10 transform translate-y-5 scale-150 origin-bottom"
+              className="z-10 transform translate-y-5 xl:translate-y-7 2xl:scale-[2] scale-150 origin-bottom"
               priority
             />
           </div>
         </div>
 
-        <h1 className="title-18-bold text-yellow-300 md:text-black mt-8 relative z-20 text-center">
+        <h1 className="title-18-bold text-yellow-300 md:text-black mt-8 relative z-20 text-center 2xl:text-2xl">
           {name}
         </h1>
       </div>

@@ -8,7 +8,7 @@ import NewArrivals from "./NewArrivals";
 
 export default function Hero() {
   return (
-    <div className="relative h-[90vh] max-h-[800px] flex flex-col overflow-y-hidden">
+    <div className="relative h-screen sm:h-[90vh] max-h-[800px] flex flex-col overflow-y-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src={heroImage}
@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="relative z-10 w-full px-4 flex-1 flex flex-col sm:flex-row sm:items-center">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl hidden sm:block">
             <Image
               src={newArrival}
               alt="New Arrival"
@@ -33,7 +33,7 @@ export default function Hero() {
           </div>
         </div>
         {/* Mobile NewArrivals */}
-        <div className="sm:hidden mt-8">
+        <div className="sm:hidden mt-24 md:mt-0">
           <NewArrivals />
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function Hero() {
             className="w-full"
             priority
           />
-          <div className="absolute bottom-0 right-0 sm:right-[1%] translate-y-[35%]">
+          <div className="absolute bottom-0 right-0  translate-y-[35%]">
             <HighlightNPC image={theDJ} name="THE DJ" />
           </div>
           {/* Desktop NewArrivals */}
