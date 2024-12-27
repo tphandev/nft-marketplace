@@ -32,6 +32,17 @@ jest.mock("@/components/NFTList", () => {
   };
 });
 
+jest.mock("@/components/ProductSection", () => {
+  return function MockProductSection() {
+    return (
+      <div data-testid="mock-nft-list">
+        <h2>Featured NFTs</h2>
+        <div>NFT Count: 14</div>
+      </div>
+    );
+  };
+});
+
 describe("Home Component", () => {
   it("renders the main layout with hero and NFT list", () => {
     render(<Home />);
