@@ -4,13 +4,11 @@ import { useProducts } from "../useProducts";
 import { getProducts } from "@/services/api";
 import { ITEMS_PER_PAGE } from "@/constants/designSystem";
 
-// Mock the API service
 jest.mock("@/services/api");
 const mockedGetProducts = getProducts as jest.MockedFunction<
   typeof getProducts
 >;
 
-// Test wrapper setup
 const createWrapper = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -86,7 +84,7 @@ describe("useProducts", () => {
       expect(result.current.isSuccess).toBe(true);
     });
 
-    expect(result.current.data).toEqual(mockProducts);
+    expect(result.current.data?.pages[0]).toEqual(mockProducts);
     expect(mockedGetProducts).toHaveBeenCalledWith(1, ITEMS_PER_PAGE);
   });
 
@@ -102,22 +100,55 @@ describe("useProducts", () => {
       expect(result.current.isSuccess).toBe(true);
     });
 
-    expect(result.current.data).toEqual([]);
+    expect(result.current.data?.pages[0]).toEqual([]);
     expect(consoleErrorSpy).toHaveBeenCalled();
 
     consoleErrorSpy.mockRestore();
   });
 
-  it("should handle pagination", async () => {
-    const page = 2;
-    const limit = 10;
+  it("should handle infinite pagination", async () => {
+    const firstPageProducts = Array(ITEMS_PER_PAGE).fill({ id: 1 });
+    const secondPageProducts = Array(ITEMS_PER_PAGE).fill({ id: 2 });
 
-    renderHook(() => useProducts(page, limit), {
+    mockedGetProducts
+      .mockResolvedValueOnce(firstPageProducts)
+      .mockResolvedValueOnce(secondPageProducts);
+
+    const { result } = renderHook(() => useProducts(), {
       wrapper: createWrapper(),
     });
 
     await waitFor(() => {
-      expect(mockedGetProducts).toHaveBeenCalledWith(page, limit);
+      expect(result.current.isSuccess).toBe(true);
     });
+
+    // Check first page
+    expect(result.current.data?.pages[0]).toEqual(firstPageProducts);
+
+    // Fetch next page
+    await result.current.fetchNextPage();
+
+    await waitFor(() => {
+      expect(result.current.data?.pages).toHaveLength(2);
+    });
+
+    expect(mockedGetProducts).toHaveBeenCalledTimes(2);
+    expect(mockedGetProducts).toHaveBeenNthCalledWith(1, 1, ITEMS_PER_PAGE);
+    expect(mockedGetProducts).toHaveBeenNthCalledWith(2, 2, ITEMS_PER_PAGE);
+  });
+
+  it("should not have next page when results are less than limit", async () => {
+    const partialPage = Array(ITEMS_PER_PAGE - 1).fill({ id: 1 });
+    mockedGetProducts.mockResolvedValueOnce(partialPage);
+
+    const { result } = renderHook(() => useProducts(), {
+      wrapper: createWrapper(),
+    });
+
+    await waitFor(() => {
+      expect(result.current.isSuccess).toBe(true);
+    });
+
+    expect(result.current.hasNextPage).toBe(false);
   });
 });

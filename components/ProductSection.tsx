@@ -8,14 +8,23 @@ import NFTSkeleton from "@/components/NFTSkeleton";
 const queryClient = new QueryClient();
 
 function ProductContent() {
-  const { data: products, isLoading, error } = useProducts();
+  const {
+    data,
+    isLoading,
+    error,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useProducts();
 
   if (isLoading) return <NFTSkeleton />;
   if (error) return <div>Error: {error.message}</div>;
 
+  const allProducts = data?.pages.flat() || [];
+
   return (
     <NFTList
-      items={(products || []).map((product) => ({
+      items={allProducts.map((product) => ({
         id: product.id,
         image: getImageSource(product.imageId),
         name: product.title,
@@ -27,6 +36,9 @@ function ProductContent() {
           avatarUrl: product.author.avatar,
         },
       }))}
+      hasMore={hasNextPage}
+      isLoading={isFetchingNextPage}
+      onLoadMore={() => fetchNextPage()}
     />
   );
 }

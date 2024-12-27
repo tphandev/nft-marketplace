@@ -31,6 +31,9 @@ describe("ProductSection", () => {
       isLoading: true,
       data: null,
       error: null,
+      hasNextPage: false,
+      fetchNextPage: jest.fn(),
+      isFetchingNextPage: false,
     });
 
     render(<ProductSection />);
@@ -43,6 +46,9 @@ describe("ProductSection", () => {
       isLoading: false,
       data: null,
       error: new Error(errorMessage),
+      hasNextPage: false,
+      fetchNextPage: jest.fn(),
+      isFetchingNextPage: false,
     });
 
     render(<ProductSection />);
@@ -68,8 +74,11 @@ describe("ProductSection", () => {
 
     (useProducts as jest.Mock).mockReturnValue({
       isLoading: false,
-      data: mockProducts,
+      data: { pages: [mockProducts], pageParams: [1] },
       error: null,
+      hasNextPage: true,
+      fetchNextPage: jest.fn(),
+      isFetchingNextPage: false,
     });
 
     render(<ProductSection />);
