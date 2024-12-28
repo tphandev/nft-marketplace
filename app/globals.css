@@ -40,6 +40,10 @@
     @apply bg-gradient-to-r from-[#DA458F] to-[#DA34DD];
   }
 
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-[#DA458F]/40 to-[#DA34DD]/40;
+  }
+
   .text-gradient {
     @apply bg-gradient bg-clip-text text-transparent;
   }
