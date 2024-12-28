@@ -5,7 +5,7 @@ import { ITEMS_PER_PAGE } from "@/constants/designSystem";
 describe("NFTSkeleton", () => {
   it("renders the correct number of skeleton cards", () => {
     render(<NFTSkeleton />);
-    const cards = document.querySelectorAll(".ant-card");
+    const cards = document.querySelectorAll(".skeleton-card");
     expect(cards).toHaveLength(ITEMS_PER_PAGE);
   });
 
@@ -13,15 +13,11 @@ describe("NFTSkeleton", () => {
     render(<NFTSkeleton />);
 
     // Check for skeleton elements
-    const skeletonElements = document.querySelectorAll(".ant-skeleton-image");
+    const skeletonElements = document.querySelectorAll(".skeleton-image");
     expect(skeletonElements).toHaveLength(ITEMS_PER_PAGE);
 
-    // Check for title skeletons
-    const titleSkeletons = document.querySelectorAll(".ant-skeleton-title");
-    expect(titleSkeletons.length).toBeGreaterThan(0);
-
-    // Check for avatar skeletons
-    const avatarSkeletons = document.querySelectorAll(".ant-skeleton-avatar");
+    // Check for details skeletons
+    const avatarSkeletons = document.querySelectorAll(".skeleton-details");
     expect(avatarSkeletons).toHaveLength(ITEMS_PER_PAGE);
   });
 
@@ -38,9 +34,9 @@ describe("NFTSkeleton", () => {
     );
 
     // Check card styling
-    const cards = document.querySelectorAll(".ant-card");
+    const cards = document.querySelectorAll(".skeleton-card");
     cards.forEach((card) => {
-      expect(card).toHaveClass("p-2", "!bg-[#3A3841]/60");
+      expect(card).toHaveClass("p-4", "bg-gray-800", "animate-pulse");
     });
   });
 });
