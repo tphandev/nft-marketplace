@@ -14,9 +14,16 @@ export default function Hero() {
           src={heroImage}
           alt="Hero Background"
           fill
-          priority
           className="object-cover object-center"
-          quality={100}
+          quality={50}
+          sizes={`(max-width: 375px) 375px,
+            (max-width: 640px) 640px,
+            (max-width: 750px) 750px,
+            (max-width: 828px) 828px,
+            (max-width: 1080px) 1080px,
+            (max-width: 1200px) 1200px,
+            1920px`}
+          placeholder="blur"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
@@ -27,7 +34,7 @@ export default function Hero() {
             <Image
               src={newArrival}
               alt="New Arrival"
-              priority
+              loading="lazy"
               className="w-full"
             />
           </div>
@@ -43,10 +50,15 @@ export default function Hero() {
           <Image
             src={yellowBg}
             alt="Yellow Background"
-            width={1920}
-            height={300}
             className="w-full"
-            priority
+            sizes={`(max-width: 375px) 375px,
+              (max-width: 640px) 640px,
+              (max-width: 750px) 750px,
+              (max-width: 828px) 828px,
+              (max-width: 1080px) 1080px,
+              (max-width: 1200px) 1200px,
+              1920px`}
+            loading="lazy"
           />
           <div className="absolute bottom-0 right-0  translate-y-[35%]">
             <HighlightNPC image={theDJ} name="THE DJ" />

@@ -1,11 +1,12 @@
-import NFTCard from "./NFTCard";
 import NFTCardSkeleton from "./NFTCardSkeleton";
 import { StaticImageData } from "next/image";
 import { CreatorProps } from "./Creator";
 import { PrimaryButton } from "./PrimaryButton";
 import { Loading3QuartersOutlined } from "@ant-design/icons";
 import { ITEMS_PER_PAGE } from "@/constants/designSystem";
+import { lazy, Suspense } from "react";
 
+const NFTCard = lazy(() => import("./NFTCard"));
 interface NFT {
   id: number;
   image: string | StaticImageData;
@@ -49,16 +50,21 @@ export default function NFTList({
       ) : (
         <div className="flex flex-col items-center gap-8">
           <div className="w-full max-h-[1200px] overflow-y-auto pb-6 custom-scrollbar">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
               {items.map((nft) => (
-                <NFTCard
+                <Suspense
                   key={nft.id}
-                  image={nft.image}
-                  name={nft.name}
-                  price={nft.price}
-                  category={nft.category}
-                  creator={nft.creator}
-                />
+                  fallback={<NFTCardSkeleton key={`skeleton-${nft.id}`} />}
+                >
+                  <NFTCard
+                    key={nft.id}
+                    image={nft.image}
+                    name={nft.name}
+                    price={nft.price}
+                    category={nft.category}
+                    creator={nft.creator}
+                  />
+                </Suspense>
               ))}
               {showLoadingState &&
                 Array(ITEMS_PER_PAGE)

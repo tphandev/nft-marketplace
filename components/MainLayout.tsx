@@ -15,10 +15,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
           alt="Background"
           fill
           className="object-cover"
-          quality={25}
-          sizes="(max-width: 480px) 480px,
-                 (max-width: 768px) 768px,
-                 100vw"
+          quality={30}
+          sizes={`(max-width: 375px) 375px,
+            (max-width: 640px) 640px,
+            (max-width: 750px) 750px,
+            (max-width: 828px) 828px,
+            (max-width: 1080px) 1080px,
+            (max-width: 1200px) 1200px,
+            1920px`}
           placeholder="blur"
         />
       </div>
@@ -27,13 +31,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
         <Image
           src={lines}
           alt="Purple Lines"
-          width={1920}
-          height={418}
           className="w-full"
-          sizes="(max-width: 480px) 480px,
-                 (max-width: 768px) 768px,
-                 (max-width: 1200px) 1200px,
-                 1920px"
+          sizes={`(max-width: 375px) 375px,
+            (max-width: 640px) 640px,
+            (max-width: 750px) 750px,
+            (max-width: 828px) 828px,
+            (max-width: 1080px) 1080px,
+            (max-width: 1200px) 1200px,
+            1920px`}
           quality={50}
           loading="lazy"
         />

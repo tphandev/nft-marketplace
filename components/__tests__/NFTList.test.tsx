@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import NFTList from "../NFTList";
 
 describe("NFTList", () => {
@@ -17,10 +17,12 @@ describe("NFTList", () => {
     creator: mockCreator,
   }));
 
-  it("renders without crashing", () => {
+  it("renders without crashing", async () => {
     render(<NFTList items={mockItems} />);
-    const nftCards = screen.getAllByText(/NFT \d/);
-    expect(nftCards).toHaveLength(mockItems.length);
+    await waitFor(() => {
+      const nftCards = screen.getAllByText(/NFT \d/);
+      expect(nftCards).toHaveLength(mockItems.length);
+    });
   });
 
   it("renders with title when provided", () => {
@@ -49,12 +51,14 @@ describe("NFTList", () => {
     expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
 
-  it("displays correct NFT information", () => {
+  it("displays correct NFT information", async () => {
     render(<NFTList items={mockItems.slice(0, 1)} />);
-    expect(screen.getByText("NFT 0")).toBeInTheDocument();
-    expect(screen.getByText("0.5 ETH")).toBeInTheDocument();
-    expect(screen.getByText("Art")).toBeInTheDocument();
-    expect(screen.getByText("John Doe")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("NFT 0")).toBeInTheDocument();
+      expect(screen.getByText("0.5 ETH")).toBeInTheDocument();
+      expect(screen.getByText("Art")).toBeInTheDocument();
+      expect(screen.getByText("John Doe")).toBeInTheDocument();
+    });
   });
 
   it("displays no items message when array is empty", () => {
