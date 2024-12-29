@@ -81,7 +81,7 @@ export default function NFTList({
                   Loading...
                 </>
               ) : (
-                "Load More"
+                "View More"
               )}
             </PrimaryButton>
           )}

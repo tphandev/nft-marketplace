@@ -29,22 +29,22 @@ describe("NFTList", () => {
     expect(screen.getByText(title)).toBeInTheDocument();
   });
 
-  it("displays load more button when hasMore is true", () => {
+  it("displays view more button when hasMore is true", () => {
     render(<NFTList items={mockItems} hasMore={true} />);
-    expect(screen.getByText("Load More")).toBeInTheDocument();
+    expect(screen.getByText("View More")).toBeInTheDocument();
   });
 
-  it("calls onLoadMore when load more button is clicked", () => {
+  it("calls onLoadMore when view more button is clicked", () => {
     const onLoadMore = jest.fn();
     render(
       <NFTList items={mockItems} hasMore={true} onLoadMore={onLoadMore} />
     );
 
-    fireEvent.click(screen.getByText("Load More"));
+    fireEvent.click(screen.getByText("View More"));
     expect(onLoadMore).toHaveBeenCalled();
   });
 
-  it("shows loading state in load more button", () => {
+  it("shows loading state in view more button", () => {
     render(<NFTList items={mockItems} hasMore={true} isLoading={true} />);
     expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
