@@ -34,7 +34,7 @@ To run this project, you will need to add the following environment variables to
 1. Clone the repository:
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/tphandev/tymex-interview-frontend-phan.git
 cd tymex-interview-frontend-phan
 ```
 
