@@ -3,6 +3,8 @@ import { getProducts } from "@/services/api";
 import { ITEMS_PER_PAGE } from "@/constants/designSystem";
 import { FilterParams } from "@/types/filters";
 
+const REFRESH_INTERVAL = 60000; // 60 seconds in milliseconds
+
 export const useProducts = (
   limit: number = ITEMS_PER_PAGE,
   filters?: FilterParams
@@ -22,5 +24,6 @@ export const useProducts = (
       return lastPage.length === limit ? allPages.length + 1 : undefined;
     },
     initialPageParam: 1,
+    refetchInterval: REFRESH_INTERVAL,
   });
 };
