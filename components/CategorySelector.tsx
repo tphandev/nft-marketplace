@@ -12,7 +12,11 @@ export default function CategorySelector({
   onCategoryChange,
 }: CategorySelectorProps) {
   return (
-    <div className="overflow-x-auto scrolling-touch custom-scrollbar max-w-[95vw]">
+    <div
+      className="overflow-x-auto scrolling-touch custom-scrollbar max-w-[95vw]"
+      role="group"
+      aria-label="categories"
+    >
       <div className="flex gap-6 no-wrap min-w-min pb-2">
         {categories.map((category) => (
           <label
