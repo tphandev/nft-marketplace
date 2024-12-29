@@ -9,9 +9,7 @@ export const TEXT_STYLES = {
 } as const;
 
 export const COLORS = {
-  primary: "linear-gradient(to right, #DA458F, #DA34DD)",
-  secondary:
-    "linear-gradient(to right, rgba(218, 69, 143, 0.4), rgba(218, 52, 221, 0.4))",
+  primary: "#fff",
 } as const;
 
 export const ITEMS_PER_PAGE = 8;

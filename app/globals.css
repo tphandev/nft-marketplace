@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input::placeholder {
+    color: #89888b !important;
+  }
+}
+
 @layer components {
   .mf-grid {
     @apply mx-auto grid grid-cols-[repeat(12,minmax(0,80px))] justify-center gap-8;
@@ -47,10 +53,30 @@
   .text-gradient {
     @apply bg-gradient bg-clip-text text-transparent;
   }
+
+  .bg-1 {
+    @apply bg-gradient-to-r from-[#49DD81] to-[#22B4C6];
+  }
+
+  .bg-2 {
+    @apply bg-gradient-to-r from-[#43A6F6] to-[#5868F3];
+  }
+
+  .bg-3 {
+    @apply bg-gradient-to-r from-[#FE955A] to-[#F1DA63];
+  }
+
+  .bg-4 {
+    @apply bg-gradient-to-r from-[#FE5A5A] to-[#F163D2];
+  }
+
+  .bg-5 {
+    @apply bg-gradient-to-r from-[#DD5AFE] to-[#6366F1];
+  }
 }
 
 body {
-  background: #171717;
+  @apply bg-[#171717];
 }
 
 /* custom scrollbar class remains but modified */
@@ -70,4 +96,46 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #ffc107;
   border-radius: 4px;
+}
+
+/* custom slider style */
+.ant-slider .ant-slider-handle::after {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(218, 69, 143, 1) 0%,
+    rgba(218, 52, 221, 1) 100%
+  );
+}
+
+.ant-slider .ant-slider-track {
+  @apply bg-gradient;
+}
+
+.ant-tooltip .ant-tooltip-content .ant-tooltip-inner {
+  @apply bg-gradient header-16-semibold px-4 py-3;
+}
+
+/* Custom select */
+
+.ant-select-selector {
+  background-color: transparent !important;
+  border: 1px solid rgba(58, 56, 65, 1) !important;
+  color: white !important;
+}
+
+.ant-select-selection-placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.ant-select-selection-item {
+  color: white !important;
+}
+
+.ant-select-arrow {
+  color: white !important;
+}
+
+&.ant-select-focused .ant-select-selector {
+  border-color: rgba(58, 56, 65, 1) !important;
+  box-shadow: 0 0 0 2px rgba(58, 56, 65, 0.2) !important;
 }

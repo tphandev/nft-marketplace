@@ -17,7 +17,20 @@ export const getProducts = async (
     if (filters) {
       Object.entries(filters).forEach(([key, value]) => {
         if (value !== undefined && value !== "") {
-          queryParams.append(key, value.toString());
+          if (key === "priceRange" && typeof value === "object") {
+            if (value.min !== undefined) {
+              queryParams.append("price_gte", value.min.toString());
+            }
+            if (value.max !== undefined) {
+              queryParams.append("price_lte", value.max.toString());
+            }
+          } else if (key === "sort" && typeof value === "string") {
+            const [field, order] = value.split('_');
+            queryParams.append("_sort", field);
+            queryParams.append("_order", order);
+          } else {
+            queryParams.append(key, value.toString());
+          }
         }
       });
     }

@@ -10,6 +10,11 @@ describe("NFTCard", () => {
         name="Test NFT"
         price="10 ETH"
         category="Art"
+        creator={{
+          name: "John Doe",
+          isOnline: true,
+          avatarUrl: "/avatar.jpg",
+        }}
       />
     );
     expect(screen.getByText("Test NFT")).toBeInTheDocument();
@@ -23,6 +28,11 @@ describe("NFTCard", () => {
         name="Test NFT"
         price="10 ETH"
         category="Epic"
+        creator={{
+          name: "John Doe",
+          isOnline: true,
+          avatarUrl: "/avatar.jpg",
+        }}
       />
     );
     expect(screen.getByText("Epic")).toBeInTheDocument();
@@ -35,6 +45,11 @@ describe("NFTCard", () => {
         name="NFT Alt Test"
         price="5 ETH"
         category="Art"
+        creator={{
+          name: "John Doe",
+          isOnline: true,
+          avatarUrl: "/avatar.jpg",
+        }}
       />
     );
     const imageElement = screen.getByAltText("NFT Alt Test");
@@ -48,6 +63,11 @@ describe("NFTCard", () => {
         name="Gradient Test"
         price="5 ETH"
         category="Art"
+        creator={{
+          name: "John Doe",
+          isOnline: true,
+          avatarUrl: "/avatar.jpg",
+        }}
       />
     );
     const gradientDiv = container.querySelector(".bg-gradient-to-b");

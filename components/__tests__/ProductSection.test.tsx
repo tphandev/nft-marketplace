@@ -4,6 +4,7 @@ import { useProducts } from "@/hooks/useProducts";
 
 // Mock the hooks and components
 jest.mock("@/hooks/useProducts");
+jest.mock("@/hooks/useDebounce");
 jest.mock("@/components/NFTList", () => ({
   __esModule: true,
   default: ({ items }: { items: { id: number; name: string }[] }) => (
