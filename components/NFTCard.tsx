@@ -20,7 +20,7 @@ export default function NFTCard({
   creator,
 }: NFTCardProps) {
   return (
-    <div className="relative group w-[267px]">
+    <div className="relative group min-w-[267px]">
       <div className="relative p-[2px] rounded-xl bg-[#3A3841]/60">
         <div className="relative rounded-xl p-4">
           <div className="absolute w-[75%] top-8 left-8 z-10 flex justify-between items-center">

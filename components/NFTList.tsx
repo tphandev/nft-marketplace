@@ -50,7 +50,7 @@ export default function NFTList({
       ) : (
         <div className="flex flex-col items-center gap-8">
           <div className="w-full max-h-[1200px] overflow-y-auto pb-6 custom-scrollbar">
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 ">
               {items.map((nft) => (
                 <Suspense
                   key={nft.id}
