@@ -50,12 +50,12 @@ function ProductContent() {
     <div className="container mx-auto px-4 py-28">
       <div className="flex gap-8">
         {/* Desktop Filter Panel */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <FilterPanel filters={filters} onFilterChange={handleFiltersChange} />
         </div>
 
         {/* Mobile Filter Button */}
-        <div className="md:hidden fixed bottom-4 right-4 px-4 py-2 z-40">
+        <div className="lg:hidden fixed bottom-4 right-4 px-4 py-2 z-40">
           <PrimaryButton
             onClick={toggleMobileFilters}
             className="!bg-gradient text-white"
@@ -66,7 +66,7 @@ function ProductContent() {
 
         {/* Mobile Filter Panel */}
         {showMobileFilters && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <FilterPanel
               filters={filters}
               onFilterChange={handleFiltersChange}

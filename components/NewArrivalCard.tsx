@@ -18,7 +18,7 @@ export default function NewArrivalCard({ image, name }: NewArrivalCardProps) {
               className="object-cover rounded-lg  border-yellow-800 border-2"
               width={200}
               height={120}
-              sizes="(min-width: 1920px) 300px, 200px"
+              sizes="200px"
             />
           </div>
 

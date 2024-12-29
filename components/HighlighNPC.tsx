@@ -15,6 +15,9 @@ const HighlightNPC: React.FC<HighlightNPCProps> = ({ image, name }) => {
           src={image}
           alt={`${name}`}
           className="object-cover object-center scale-x-[-1]"
+          width={640}
+          height={640}
+          sizes={`(max-width: 375px) 375px, 640px`}
         />
         <div className="absolute bottom-[36%] left-[55%] -translate-x-1/2">
           <Image

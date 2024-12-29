@@ -13,7 +13,7 @@ export default function CategorySelector({
 }: CategorySelectorProps) {
   return (
     <div
-      className="overflow-x-auto scrolling-touch custom-scrollbar max-w-[95vw]"
+      className="overflow-x-auto scrolling-touch custom-scrollbar max-w-[95vw] sm:max-w-[85vw] lg:max-w-[60vw] xl:max-w-[70vw]"
       role="group"
       aria-label="categories"
     >
