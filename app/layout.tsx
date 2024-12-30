@@ -6,6 +6,8 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,6 +55,8 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </AntdRegistry>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
