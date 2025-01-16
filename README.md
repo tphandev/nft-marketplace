@@ -2,7 +2,7 @@
 
 A modern web application built with Next.js, showcasing frontend development capabilities.
 
-## 🚀 [Live Demo](https://tymex-interview-frontend-phan.vercel.app/)
+## 🚀 [Live Demo](https://nft-market-place-demo.vercel.app)
 
 ## 📝 Features
 
