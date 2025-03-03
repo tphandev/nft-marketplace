@@ -41,7 +41,7 @@ describe("Footer", () => {
   it("renders footer bottom section", () => {
     render(<Footer />);
 
-    expect(screen.getByText("©2025. All Rights reserved.")).toBeInTheDocument();
+    expect(screen.getByText("©2025 All Rights reserved.")).toBeInTheDocument();
 
     const legalLinks = ["Security", "Legal", "Privacy"];
     legalLinks.forEach((link) => {
