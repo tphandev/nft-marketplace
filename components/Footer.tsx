@@ -57,11 +57,11 @@ export default function Footer() {
           <div className="space-y-2 md:space-y-6 ">
             <p className="flex items-center">
               <PhoneOutlined className="mr-2 text-lg" />
-              01234568910
+              +84 986509559
             </p>
             <p className="flex items-center">
               <MailOutlined className="mr-2 text-lg" />
-             tphan.st@gmail.com
+              tphan.st@gmail.com
             </p>
           </div>
         </FooterSection>
@@ -79,9 +79,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row justify-between items-center mt-12 pt-8 border-t border-zinc-800">
-        <p className="header-16-medium  mt-4 ">
-          ©2025 All Rights reserved.
-        </p>
+        <p className="header-16-medium  mt-4 ">©2025 All Rights reserved.</p>
         <div className="flex gap-6 md:mt-0">
           {["Security", "Legal", "Privacy"].map((text) => (
             <FooterLink key={text} href="#">

@@ -25,8 +25,8 @@ describe("Footer", () => {
   it("renders contact information", () => {
     render(<Footer />);
 
-    expect(screen.getByText("01234568910")).toBeInTheDocument();
-    expect(screen.getByText("tymex-talent@tyme.com")).toBeInTheDocument();
+    expect(screen.getByText("+84 986509559")).toBeInTheDocument();
+    expect(screen.getByText("tphan.st@gmail.com")).toBeInTheDocument();
   });
 
   it("renders subscription form", () => {
@@ -41,9 +41,7 @@ describe("Footer", () => {
   it("renders footer bottom section", () => {
     render(<Footer />);
 
-    expect(
-      screen.getByText("©2023 Tyme - Edit. All Rights reserved.")
-    ).toBeInTheDocument();
+    expect(screen.getByText("©2025. All Rights reserved.")).toBeInTheDocument();
 
     const legalLinks = ["Security", "Legal", "Privacy"];
     legalLinks.forEach((link) => {
