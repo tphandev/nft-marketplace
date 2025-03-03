@@ -61,7 +61,7 @@ export default function Footer() {
             </p>
             <p className="flex items-center">
               <MailOutlined className="mr-2 text-lg" />
-              tymex-talent@tyme.com
+             tphan.st@gmail.com
             </p>
           </div>
         </FooterSection>
@@ -80,7 +80,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row justify-between items-center mt-12 pt-8 border-t border-zinc-800">
         <p className="header-16-medium  mt-4 ">
-          ©2023 Tyme - Edit. All Rights reserved.
+          ©2025 All Rights reserved.
         </p>
         <div className="flex gap-6 md:mt-0">
           {["Security", "Legal", "Privacy"].map((text) => (
